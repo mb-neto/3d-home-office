@@ -168,7 +168,7 @@ void renderScene(void) {
 	// Draw cupboard
 	Cupboard cupboard;
 	glPushMatrix();
-	glTranslatef( -1.5f, 0.0f, -8.5f);
+	glTranslatef( -1.5f, 0.0f, -8.4f);
 	glRotatef(360.0, 0.0, 1.0, 0.0);
 	cupboard.drawCupboard();
 	glPopMatrix();

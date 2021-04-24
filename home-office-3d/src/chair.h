@@ -6,8 +6,8 @@
 
 class Chair{
 
-    public:
-		void drawChair() ;
+public:
+  void drawChair() ;
 
 };
 
