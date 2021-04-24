@@ -12,7 +12,7 @@ void Chair :: drawChair() {
 	//glRotatef(10, 1.0f, 0.0f, 0.0f);
 	//glRotatef(-10, 0.0f, 0.0f, 1.0f);
 	//glRotatef(_angle, 0.0f, 1.0f, 0.0f);
-	glColor3f(0.4f, 0.302f, 0.0f);
+	glColor3f(0.0f, 0.0f, 0.0f);
 	glBegin(GL_QUADS);
 
 	//Front
@@ -197,7 +197,7 @@ void Chair :: drawChair() {
 
 	//;
 	//chair upper part 
-	glColor3f(1, 0, 0);
+	glColor3f(0.5, 0.5, 0.5);
 	
 	glVertex3f(-1.8f, 1.2f, -1.8f);
 	glVertex3f(1.8f, 1.2f, -1.8f);
@@ -210,7 +210,7 @@ void Chair :: drawChair() {
 	glVertex3f(-1.8f, 3.5f, -0.6f);
 
 	//chair upper side
-	glColor3f(0, 1, 0);
+	glColor3f(0.5, 0.5, 0.5);
 	glVertex3f(-1.8f, 1.2f, -1.80f);
 	glVertex3f(-1.8f, 1.2f, -0.6f);
 	glVertex3f(-1.8f, 3.5f, -0.6f);
@@ -222,7 +222,7 @@ void Chair :: drawChair() {
 	glVertex3f(1.8f, 3.5f, -1.8f);
 
 	//chair upper top
-	glColor3f(0, 0, 1);
+	glColor3f(0.5, 0.5, 0.5);
 	glVertex3f(-1.8f, 3.5f, -1.80f);
 	glVertex3f(-1.8f, 3.5f, -0.6f);
 	glVertex3f(1.8f, 3.5f, -0.6f);

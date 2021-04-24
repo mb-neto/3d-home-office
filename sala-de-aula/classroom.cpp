@@ -6,12 +6,15 @@
 #include <GL/freeglut_ext.h>
 
 #include "./src/chair.cpp"
+#include "./src/computer.cpp"
 #include "./src/table.cpp"
 #include "./src/cupboard.cpp"
 #include "./src/window.cpp"
 #include "./src/snowman.cpp"
 #include "./src/fan.cpp"
 #include "./src/shelf.cpp"
+
+
 
 #define WINDOW_WIDTH 1000
 #define WINDOW_HEIGHT 1000
@@ -135,7 +138,6 @@ void renderScene(void) {
 	glVertex3f(-3.0f, 5.0f, 5.01f);
 	glEnd();
 
-
 	//wall direita
     glColor3f(1.0f, 0.851f, 0.702f);
 	glBegin(GL_QUADS);
@@ -157,16 +159,25 @@ void renderScene(void) {
 	// Draw prof's chair
 	Chair profChair;
 	glPushMatrix();
-	glTranslatef( -6.0f, 1.0f, -8.0f);
+	glTranslatef( -6.0f, 1.0f, -7.8f);
 	glScalef(0.32f, 0.32f, 0.32f);
 	glRotatef(180.0, 0.0, 1.0, 0.0);
 	profChair.drawChair();
 	glPopMatrix();
 
+	// Draw Computer
+	Computer pc;
+	glPushMatrix();
+	glTranslatef( -6.0f, 1.7f, -8.2f);
+	glScalef(0.32f, 0.32f, 0.32f);
+	glRotatef(180.0, 0.0, 1.0, 0.0);
+	pc.drawComputer();
+	glPopMatrix();
+
 	// Draw prof's table
 	Table profTable;
 	glPushMatrix();
-	glTranslatef( -6.5f, 1.4f, -9.0f);
+	glTranslatef( -6.5f, 1.5f, -8.7f);
 	glScalef(0.5f, 0.5f, 0.5f);
 	glRotatef(180.0, 0.0, 1.0, 0.0);
 	profTable.drawTable();
@@ -175,7 +186,7 @@ void renderScene(void) {
 	// Draw cupboard
 	Cupboard cupboard;
 	glPushMatrix();
-	glTranslatef( -1.5f, 0.0f, -9.0f);
+	glTranslatef( -1.5f, 0.0f, -8.5f);
 	glRotatef(360.0, 0.0, 1.0, 0.0);
 	cupboard.drawCupboard();
 	glPopMatrix();
