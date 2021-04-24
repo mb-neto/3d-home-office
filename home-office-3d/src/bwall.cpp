@@ -1,6 +1,6 @@
 #include "bwall.h"
 
-#define TEXTURA_TIJOLO "/home/manoel/Documentos/Faculdade/Computação Gráfica/Trabalhos/home-office-3d/src/tijolo-branco.png"
+#define TEXTURA_TIJOLO "/home/manoel/Documentos/Faculdade/Computação Gráfica/Trabalhos/home-office-3d/src/frame.png"
 #define COORD_TEXTURA_PLANO 1.0
 #define COORD_TEXTURA_PONTO 0.0
 
