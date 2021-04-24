@@ -5,6 +5,8 @@
 #include <GL/glut.h>
 #include <GL/freeglut_ext.h>
 
+#include "./src/vendor/texture.h"
+
 #include "./src/chair.cpp"
 #include "./src/computer.cpp"
 #include "./src/table.cpp"

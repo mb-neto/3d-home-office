@@ -1,11 +1,31 @@
 #include "computer.h"
 
+#define TEXTURA_TECLADO "/home/manoel/Documentos/Faculdade/Computação Gráfica/Trabalhos/home-office-3d/src/keyboard.png"
+#define TEXTURA_VIDRO "/home/manoel/Documentos/Faculdade/Computação Gráfica/Trabalhos/home-office-3d/src/glass.png"
+#define COORD_TEXTURA_PLANO 1.0
+#define COORD_TEXTURA_PONTO 0.0
+
 #define DEF_D 5
 
 void Computer :: drawComputer() {
 
+	GLfloat ctp[4][2]={
+  		{COORD_TEXTURA_PONTO,COORD_TEXTURA_PONTO},
+  		{COORD_TEXTURA_PLANO,COORD_TEXTURA_PONTO},
+  		{COORD_TEXTURA_PLANO,COORD_TEXTURA_PLANO},
+  		{COORD_TEXTURA_PONTO,COORD_TEXTURA_PLANO}
+	};
+
+	GLuint texture_id[0]; // vetor com os números das texturas
+	glGenTextures(1, texture_id);
+
+	texture_id[0] = png_texture_load(TEXTURA_TECLADO, NULL, NULL);
+	
+	// Define a textura corrente
+	glBindTexture(GL_TEXTURE_2D, texture_id[0]);
+
     // Teclado
-	glColor3f(0.0, 0.0, 0.0);
+	glColor3f(1.0, 1.0, 1.0);
 	glBegin(GL_QUADS);
 
 	//Front
@@ -38,10 +58,10 @@ void Computer :: drawComputer() {
 
 	//top
 
-	glVertex3f(1.8f, 0.0f, 2.0f);
-	glVertex3f(-1.8f, 0.0f, 2.0f);
-	glVertex3f(-1.8f, 0.0f, -1.0f);
-	glVertex3f(1.8f, 0.0f, -1.0f);
+	glTexCoord2fv(ctp[3]);	glVertex3f(1.8f, 0.0f, 2.0f);
+	glTexCoord2fv(ctp[2]);	glVertex3f(-1.8f, 0.0f, 2.0f);
+	glTexCoord2fv(ctp[1]);	glVertex3f(-1.8f, 0.0f, -1.0f);
+	glTexCoord2fv(ctp[0]);	glVertex3f(1.8f, 0.0f, -1.0f);
 
 	//bottom
 
@@ -51,7 +71,6 @@ void Computer :: drawComputer() {
 	glVertex3f(1.8f, -0.2f, -1.0f);
 
 	// Tela 
-    
     // frente e tras
 	glColor3f(0.5, 0.5, 0.5);
 	

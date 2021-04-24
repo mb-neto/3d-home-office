@@ -86,17 +86,17 @@ GLuint png_texture_load(const char * file_name, int * width, int * height){
 
   GLint format;
   switch(color_type) {
-    case PNG_COLOR_TYPE_RGB:
+  case PNG_COLOR_TYPE_RGB:
 	  format = GL_RGB;
-	break;
-    case PNG_COLOR_TYPE_RGB_ALPHA:
+	  break;
+  case PNG_COLOR_TYPE_RGB_ALPHA:
 	  format = GL_RGBA;
-	break;
+	  break;
   default:
 	  fprintf(stderr, "%s: Unknown libpng color type %d.\n", file_name, color_type);
 	  return 0;
   }
-
+  
   // Update the png info struct.
   png_read_update_info(png_ptr, info_ptr);
 
@@ -118,11 +118,11 @@ GLuint png_texture_load(const char * file_name, int * width, int * height){
   // row_pointers is for pointing to image_data for reading the png with libpng
   png_byte ** row_pointers = (png_byte **)malloc(temp_height * sizeof(png_byte *));
   if (row_pointers == NULL){
-	fprintf(stderr, "error: could not allocate memory for PNG row pointers\n");
-	png_destroy_read_struct(&png_ptr, &info_ptr, &end_info);
-	free(image_data);
-	fclose(fp);
-	return 0;
+    fprintf(stderr, "error: could not allocate memory for PNG row pointers\n");
+    png_destroy_read_struct(&png_ptr, &info_ptr, &end_info);
+    free(image_data);
+    fclose(fp);
+    return 0;
   }
 
   // set the individual row_pointers to point at the correct offsets of image_data
@@ -143,10 +143,6 @@ GLuint png_texture_load(const char * file_name, int * width, int * height){
   // glTexImage2D(GL_TEXTURE_2D, 0, 4, 16, 16, 0, GL_ALPHA, GL_UNSIGNED_BYTE, image_data);
   glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
   glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-
-  if(format == GL_RGBA){
-	printf("alpha\n");
-  }
 
   /*  gluBuild2DMipmaps(GL_TEXTURE_2D, format, 
 					temp_width, temp_height, 

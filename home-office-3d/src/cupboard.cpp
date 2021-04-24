@@ -1,76 +1,98 @@
 #include "cupboard.h"
 
+#define TEXTURA_METAL "/home/manoel/Documentos/Faculdade/Computação Gráfica/Trabalhos/home-office-3d/src/metal.png"
+#define COORD_TEXTURA_PLANO 1.0
+#define COORD_TEXTURA_PONTO 0.0
+
 void Cupboard :: drawCupboard() {
+
+	GLfloat ctp[4][2]={
+  		{COORD_TEXTURA_PONTO,COORD_TEXTURA_PONTO},
+  		{COORD_TEXTURA_PLANO,COORD_TEXTURA_PONTO},
+  		{COORD_TEXTURA_PLANO,COORD_TEXTURA_PLANO},
+  		{COORD_TEXTURA_PONTO,COORD_TEXTURA_PLANO}
+	};
+
+	GLuint texture_id[0]; // vetor com os números das texturas
+	glGenTextures (1, texture_id);
+
+	// Definr o número da textura do cubo.
+	texture_id[0] = 1001;
+
+	// Define a textura corrente
+	glBindTexture(GL_TEXTURE_2D, texture_id[0]);
+
+	texture_id[0] = png_texture_load(TEXTURA_METAL, NULL, NULL);
 
 	glColor3f(0.302f, 0.0f, 0.302f);
 	glBegin(GL_QUADS);
 
     // Back
-	glVertex3f(-1.5f, 0.5f, -1.5f);
-	glVertex3f(-1.5f, 4.5f, -1.5f);
-	glVertex3f(1.5, 4.5f, -1.5f);
-	glVertex3f(1.5f, 0.5f, -1.5f);
+	glTexCoord2fv(ctp[0]);	glVertex3f(-1.5f, 0.5f, -1.5f);
+	glTexCoord2fv(ctp[1]);	glVertex3f(-1.5f, 4.5f, -1.5f);
+	glTexCoord2fv(ctp[2]);	glVertex3f(1.5, 4.5f, -1.5f);
+	glTexCoord2fv(ctp[3]);	glVertex3f(1.5f, 0.5f, -1.5f);
 
     // Left Side
-    glVertex3f(-1.5f, 0.5f, -1.5f);
-	glVertex3f(-1.5f, 4.5f, -1.5f);
-	glVertex3f(-1.5, 4.5f, 0.5f);
-	glVertex3f(-1.5f, 0.5f, 0.5f);
+    glTexCoord2fv(ctp[0]);	glVertex3f(-1.5f, 0.5f, -1.5f);
+	glTexCoord2fv(ctp[1]);	glVertex3f(-1.5f, 4.5f, -1.5f);
+	glTexCoord2fv(ctp[2]);	glVertex3f(-1.5, 4.5f, 0.5f);
+	glTexCoord2fv(ctp[3]);	glVertex3f(-1.5f, 0.5f, 0.5f);
 
     // Right Side
-    glVertex3f(1.5f, 0.5f, -1.5f);
-	glVertex3f(1.5f, 4.5f, -1.5f);
-	glVertex3f(1.5, 4.5f, 0.5f);
-	glVertex3f(1.5f, 0.5f, 0.5f);
+    glTexCoord2fv(ctp[0]);	glVertex3f(1.5f, 0.5f, -1.5f);
+	glTexCoord2fv(ctp[1]);	glVertex3f(1.5f, 4.5f, -1.5f);
+	glTexCoord2fv(ctp[2]);	glVertex3f(1.5, 4.5f, 0.5f);
+	glTexCoord2fv(ctp[3]);	glVertex3f(1.5f, 0.5f, 0.5f);
 
     // Front
-    glVertex3f(-1.5f, 0.5f, 0.5f);
-	glVertex3f(-1.5f, 4.5f, 0.5f);
-	glVertex3f(1.5, 4.5f, 0.5f);
-	glVertex3f(1.5f, 0.5f, 0.5f);
+    glTexCoord2fv(ctp[0]);	glVertex3f(-1.5f, 0.5f, 0.5f);
+	glTexCoord2fv(ctp[1]);	glVertex3f(-1.5f, 4.5f, 0.5f);
+	glTexCoord2fv(ctp[2]);	glVertex3f(1.5, 4.5f, 0.5f);
+	glTexCoord2fv(ctp[3]);	glVertex3f(1.5f, 0.5f, 0.5f);
 
     glColor3f(0.2f, 0.0f, 0.2f);
     // Left Support
-	glVertex3f(-1.5f, 0.0f, -1.5f);
-	glVertex3f(-1.5f, 0.5f, -1.5f);
-	glVertex3f(-1.2, 0.5f, -1.5f);
-	glVertex3f(-1.2f, 0.0f, -1.5f);
+	glTexCoord2fv(ctp[0]);	glVertex3f(-1.5f, 0.0f, -1.5f);
+	glTexCoord2fv(ctp[1]);	glVertex3f(-1.5f, 0.5f, -1.5f);
+	glTexCoord2fv(ctp[2]);	glVertex3f(-1.2, 0.5f, -1.5f);
+	glTexCoord2fv(ctp[3]);	glVertex3f(-1.2f, 0.0f, -1.5f);
 
-    glVertex3f(-1.5f, 0.0f, -1.5f);
-	glVertex3f(-1.5f, 0.5f, -1.5f);
-	glVertex3f(-1.5, 0.5f, 0.5f);
-	glVertex3f(-1.5f, 0.0f, 0.5f);
+    glTexCoord2fv(ctp[0]);	glVertex3f(-1.5f, 0.0f, -1.5f);
+	glTexCoord2fv(ctp[1]);	glVertex3f(-1.5f, 0.5f, -1.5f);
+	glTexCoord2fv(ctp[2]);	glVertex3f(-1.5, 0.5f, 0.5f);
+	glTexCoord2fv(ctp[3]);	glVertex3f(-1.5f, 0.0f, 0.5f);
 
-    glVertex3f(-1.2f, 0.0f, -1.5f);
-	glVertex3f(-1.2f, 0.5f, -1.5f);
-	glVertex3f(-1.2, 0.5f, 0.5f);
-	glVertex3f(-1.2f, 0.0f, 0.5f);
+    glTexCoord2fv(ctp[0]);	glVertex3f(-1.2f, 0.0f, -1.5f);
+	glTexCoord2fv(ctp[1]);	glVertex3f(-1.2f, 0.5f, -1.5f);
+	glTexCoord2fv(ctp[2]);	glVertex3f(-1.2, 0.5f, 0.5f);
+	glTexCoord2fv(ctp[3]);	glVertex3f(-1.2f, 0.0f, 0.5f);
 
-    glVertex3f(-1.5f, 0.0f, 0.5f);
-	glVertex3f(-1.5f, 0.5f, 0.5f);
-	glVertex3f(-1.2, 0.5f, 0.5f);
-	glVertex3f(-1.2f, 0.0f, 0.5f);
+    glTexCoord2fv(ctp[0]);	glVertex3f(-1.5f, 0.0f, 0.5f);
+	glTexCoord2fv(ctp[1]);	glVertex3f(-1.5f, 0.5f, 0.5f);
+	glTexCoord2fv(ctp[2]);	glVertex3f(-1.2, 0.5f, 0.5f);
+	glTexCoord2fv(ctp[3]);	glVertex3f(-1.2f, 0.0f, 0.5f);
 
     // Right Support
-	glVertex3f(1.5f, 0.0f, -1.5f);
-	glVertex3f(1.5f, 0.5f, -1.5f);
-	glVertex3f(1.2f, 0.5f, -1.5f);
-	glVertex3f(1.2f, 0.0f, -1.5f);
+	glTexCoord2fv(ctp[0]);	glVertex3f(1.5f, 0.0f, -1.5f);
+	glTexCoord2fv(ctp[1]);	glVertex3f(1.5f, 0.5f, -1.5f);
+	glTexCoord2fv(ctp[2]);	glVertex3f(1.2f, 0.5f, -1.5f);
+	glTexCoord2fv(ctp[3]);	glVertex3f(1.2f, 0.0f, -1.5f);
 
-    glVertex3f(1.5f, 0.0f, -1.5f);
-	glVertex3f(1.5f, 0.5f, -1.5f);
-	glVertex3f(1.5f, 0.5f, 0.5f);
-	glVertex3f(1.5f, 0.0f, 0.5f);
+    glTexCoord2fv(ctp[0]);	glVertex3f(1.5f, 0.0f, -1.5f);
+	glTexCoord2fv(ctp[1]);	glVertex3f(1.5f, 0.5f, -1.5f);
+	glTexCoord2fv(ctp[2]);	glVertex3f(1.5f, 0.5f, 0.5f);
+	glTexCoord2fv(ctp[3]);	glVertex3f(1.5f, 0.0f, 0.5f);
 
-    glVertex3f(1.2f, 0.0f, -1.5f);
-	glVertex3f(1.2f, 0.5f, -1.5f);
-	glVertex3f(1.2f, 0.5f, 0.5f);
-	glVertex3f(1.2f, 0.0f, 0.5f);
+    glTexCoord2fv(ctp[0]);	glVertex3f(1.2f, 0.0f, -1.5f);
+	glTexCoord2fv(ctp[1]);	glVertex3f(1.2f, 0.5f, -1.5f);
+	glTexCoord2fv(ctp[2]);	glVertex3f(1.2f, 0.5f, 0.5f);
+	glTexCoord2fv(ctp[3]);	glVertex3f(1.2f, 0.0f, 0.5f);
 
-    glVertex3f(1.5f, 0.0f, 0.5f);
-	glVertex3f(1.5f, 0.5f, 0.5f);
-	glVertex3f(1.2f, 0.5f, 0.5f);
-	glVertex3f(1.2f, 0.0f, 0.5f);
+    glTexCoord2fv(ctp[0]);	glVertex3f(1.5f, 0.0f, 0.5f);
+	glTexCoord2fv(ctp[1]);	glVertex3f(1.5f, 0.5f, 0.5f);
+	glTexCoord2fv(ctp[2]);	glVertex3f(1.2f, 0.5f, 0.5f);
+	glTexCoord2fv(ctp[3]);	glVertex3f(1.2f, 0.0f, 0.5f);
 
     glEnd();
 
