@@ -12,6 +12,7 @@
 #include "./src/table.cpp"
 #include "./src/cupboard.cpp"
 #include "./src/window.cpp"
+#include "./src/bwall.cpp"
 
 
 #define WINDOW_WIDTH 1000
@@ -19,13 +20,6 @@
 
 using namespace std;
 
-/**
- * 1) Definir importações
- * 2) Definir coordenadas da matriz de texturas
- * 3) Carregar textura
- * 4) Aplicar textura com glBindTexture
- * 5) Utilizar glTxCoord2fv antes de desenhar cada ponto dos objetos
-*/
 // angle of rotation for the camera direction
 float angle = 0.0, yAngle = 0.0;
 // actual vector representing the camera's direction
@@ -62,13 +56,11 @@ void renderScene(void) {
 	glEnd();
 
     //wall tras
-    glColor3f(0.9294f, 0.9216f, 0.8353f);
-	glBegin(GL_QUADS);
-	glVertex3f(-10.0f, 0.0f, -10.0f);
-	glVertex3f(-10.0f, 7.0f, -10.0f);
-	glVertex3f(1.0f, 7.0f, -10.0f);
-	glVertex3f(1.0f, 0.0f, -10.0f);
-	glEnd();
+	BWall bwall;
+	glPushMatrix();
+	glColor3f(1.0, 1.0, 1.0);
+	bwall.drawBWall();
+	glPopMatrix();
 
 	//wall esquerda
     glColor3f(1.0f, 0.851f, 0.702f);
@@ -272,6 +264,10 @@ void processNormalKeys(unsigned char key, int xx, int yy) {
 		roll += 0.5f;
 	} else if (key == 'z') {
 		roll -= 0.5f;
+	} else if (key == 'o') {
+		glDisable(GL_LIGHT0);
+	} else if (key == 'l') {
+		glEnable(GL_LIGHT0);
 	}
 	
 	if (key == 27)
@@ -330,6 +326,28 @@ void animate(void) {
 	glutPostRedisplay();
 }
 
+void light(void) {
+	GLfloat light_position[] = { 30.0, 30.0, 0.0, 1.0 };
+	GLfloat light_difusa[] = { 0.8, 0.8, 0.8, 1.0 };
+	GLfloat light_ambient[] = { 0.5, 0.5, 0.5, 1.0 };
+
+	glEnable(GL_LIGHTING);
+	glLightModelfv(GL_LIGHT_MODEL_AMBIENT,light_ambient);
+	glEnable(GL_COLOR_MATERIAL);
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, light_difusa);
+	glLightfv(GL_LIGHT0, GL_POSITION, light_position );
+	
+	glEnable(GL_LIGHT0);
+}
+
+void init(void) {
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_BLEND);
+	glEnable(GL_TEXTURE_2D);
+	glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+	glShadeModel(GL_FLAT);
+}
+
 int main(int argc, char **argv) {
 
 	// init GLUT and create window
@@ -338,12 +356,8 @@ int main(int argc, char **argv) {
 	glutInitWindowPosition(0, 0);
 	glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 	glutCreateWindow("Classroom");
-	
-	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_BLEND);
-	glEnable(GL_TEXTURE_2D);
-	glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
-	glShadeModel(GL_FLAT);
+	init();
+	light();
 
 	// register callbacks
 	glutDisplayFunc(renderScene);
