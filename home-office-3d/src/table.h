@@ -6,8 +6,8 @@
 
 class Table{
 
-    public:
-		void drawTable();
+public:
+  void drawTable();
 };
 
 

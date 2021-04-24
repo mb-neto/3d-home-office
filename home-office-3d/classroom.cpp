@@ -10,8 +10,6 @@
 #include "./src/table.cpp"
 #include "./src/cupboard.cpp"
 #include "./src/window.cpp"
-#include "./src/fan.cpp"
-#include "./src/shelf.cpp"
 
 
 #define WINDOW_WIDTH 1000
@@ -19,6 +17,13 @@
 
 using namespace std;
 
+/**
+ * 1) Definir importações
+ * 2) Definir coordenadas da matriz de texturas
+ * 3) Carregar textura
+ * 4) Aplicar textura com glBindTexture
+ * 5) Utilizar glTxCoord2fv antes de desenhar cada ponto dos objetos
+*/
 // angle of rotation for the camera direction
 float angle = 0.0, yAngle = 0.0;
 // actual vector representing the camera's direction
@@ -31,9 +36,6 @@ float roll = 0.0f;
 float halfWidth = (float)(WINDOW_WIDTH/2.0);
 float halfHeight = (float)(WINDOW_HEIGHT/2.0);
 float mouseX = 0.0f, mouseY = 0.0f;
-
-//Fan
-Fan f;
 
 void renderScene(void) {
 
@@ -85,6 +87,7 @@ void renderScene(void) {
 	glEnd();
 
 	//wall with door direita
+
 	glColor3f(1.0f, 0.851f, 0.702f);
 	glBegin(GL_QUADS);
 	glVertex3f(-3.0f, 0.0f, 5.0f);
@@ -198,21 +201,6 @@ void renderScene(void) {
 	glPushMatrix();
 	glTranslatef( 0.0f, 0.0f, 8.0f);
 	glPopMatrix();
-
-	// Fan
-	// glPushMatrix();
-	// glTranslatef(0.0f, 6.0f, 0.0);
-	// glScalef(0.3f, 0.3f, 0.3f);
-	// f.drawFan();
-	// glPopMatrix();
-
-	// Shelf sh;
-	// glPushMatrix();
-	// glTranslatef(8.99f, 3.5f, 4.0);
-	// glScalef(0.25f, 0.25f, 0.25f);
-	// glRotatef(-90, 0.0f, 1.0f, 0.0f);
-	// sh.drawShelf();
-	// glPopMatrix();
 	
 	if(abs((int) mouseX) > 0.3){
 		angle -= (0.004f * mouseX);
@@ -336,12 +324,8 @@ void changeSize(int w, int h) {
 	glMatrixMode(GL_MODELVIEW);
 }
 
-void animate () {
-
-    f.rotateFan();
-
-    /* refresh screen */
-    glutPostRedisplay();
+void animate(void) {
+	glutPostRedisplay();
 }
 
 int main(int argc, char **argv) {
@@ -352,6 +336,12 @@ int main(int argc, char **argv) {
 	glutInitWindowPosition(0, 0);
 	glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 	glutCreateWindow("Classroom");
+	
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_BLEND);
+	glEnable(GL_TEXTURE_2D);
+	glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+	glShadeModel(GL_FLAT);
 
 	// register callbacks
 	glutDisplayFunc(renderScene);
