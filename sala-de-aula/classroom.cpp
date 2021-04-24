@@ -154,71 +154,63 @@ void renderScene(void) {
 	// Draw prof's chair
 	Chair profChair;
 	glPushMatrix();
-	glTranslatef( 6.0f, 1.0f, -9.0f);
+	glTranslatef( -5.5f, 1.0f, -8.0f);
 	glScalef(0.32f, 0.32f, 0.32f);
-	glRotatef(-30.0, 0.0, 1.0, 0.0);
+	glRotatef(180.0, 0.0, 1.0, 0.0);
 	profChair.drawChair();
 	glPopMatrix();
 
 	// Draw prof's table
 	Table profTable;
 	glPushMatrix();
-	glTranslatef( 6.0f, 1.4f, -7.6f);
+	glTranslatef( -6.0f, 1.4f, -9.0f);
 	glScalef(0.5f, 0.5f, 0.5f);
-	glRotatef(-30.0, 0.0, 1.0, 0.0);
+	glRotatef(180.0, 0.0, 1.0, 0.0);
 	profTable.drawTable();
 	glPopMatrix();
 
 	// Draw student chairs
-	Chair studentChair[4][4];
-	for (int i = -3; i <= 3; i+=2){
-		for (int j = -3; j <= 3; j+=2) {
-			glPushMatrix();
-			glTranslatef(i*2.0, 0.8f, j * 2.0 + 2.2f);
-			glScalef(0.25f, 0.25f, 0.25f);
-			glRotatef(180.0, 0.0, 1.0, 0.0);
-			studentChair[i][j].drawChair();
-			glPopMatrix();
-		}
-	}
+	// Chair studentChair;
+	// glPushMatrix();
+	// glTranslatef(-6.0f, 1.4f, 9.0f);
+	// glScalef(0.5f, 0.5f, 0.5f);
+	// glRotatef(180.0, 0.0, 1.0, 0.0);
+	// studentChair.drawChair();
+	// glPopMatrix();
 
 	// Draw student tables
-	Table studentTable[4][4];
-	for (int i = -3; i <= 3; i+=2){
-		for (int j = -3; j <= 3; j+=2) {
-			glPushMatrix();
-			glTranslatef(i*2.0 + 0.3f, 1.2f, j * 2.0 + 1.2f);
-			glScalef(0.4f, 0.4f, 0.4f);
-			// glRotatef(180.0, 0.0, 1.0, 0.0);
-			studentTable[i][j].drawTable();
-			glPopMatrix();
-		}
-	}
+	// Table studentTable;
+	// glPushMatrix();
+	// glTranslatef(2.0 + 0.3f, 1.2f, 2.0 + 1.2f);
+	// glScalef(0.4f, 0.4f, 0.4f);
+	// glRotatef(180.0, 0.0, 1.0, 0.0);
+	// studentTable.drawTable();
+	// glPopMatrix();
 
 	// Draw cupboard
 	Cupboard cupboard;
 	glPushMatrix();
-	glTranslatef( 8.49f, 0.0f, -3.5f);
-	glRotatef(-90.0, 0.0, 1.0, 0.0);
+	glTranslatef( -1.0f, 0.0f, -9.0f);
+	glRotatef(360.0, 0.0, 1.0, 0.0);
 	cupboard.drawCupboard();
 	glPopMatrix();
 
 	// Draw blackboard
-	glColor3f(0.4f, 0.2f, 0.0f);
-	glBegin(GL_QUADS);
-	glVertex3f(-6.0f, 2.0f, -9.99f);
-	glVertex3f(-6.0f, 5.5f, -9.99f);
-	glVertex3f(6.0f, 5.5f, -9.99f);
-	glVertex3f(6.0f, 2.0f, -9.99f);
-	glEnd();
+	// glColor3f(0.4f, 0.2f, 0.0f);
+	// glBegin(GL_QUADS);
+	// glVertex3f(-6.0f, 2.0f, -9.99f);
+	// glVertex3f(-6.0f, 5.5f, -9.99f);
+	// glVertex3f(6.0f, 5.5f, -9.99f);
+	// glVertex3f(6.0f, 2.0f, -9.99f);
+	// glEnd();
 
-	glColor3f(0.149f, 0.149f, 0.149f);
-	glBegin(GL_QUADS);
-	glVertex3f(-5.8f, 2.2f, -9.98f);
-	glVertex3f(-5.8f, 5.3f, -9.98f);
-	glVertex3f(5.8f, 5.3f, -9.98f);
-	glVertex3f(5.8f, 2.2f, -9.98f);
-	glEnd();
+	// glColor3f(0.149f, 0.149f, 0.149f);
+	// glBegin(GL_QUADS);
+	// glVertex3f(-5.8f, 2.2f, -9.98f);
+	// glVertex3f(-5.8f, 5.3f, -9.98f);
+	// glVertex3f(5.8f, 5.3f, -9.98f);
+	// glVertex3f(5.8f, 2.2f, -9.98f);
+	// glEnd();
 
 	//Floor pattern
 	glColor3f(0.149f, 0.149f, 0.149f);
@@ -249,31 +241,31 @@ void renderScene(void) {
 	glPopMatrix();
 
 	//Draw Snowmen
-	Snowman s;
-	glPushMatrix();
-	glTranslatef(-9.7f, 2.0f, -3.0);
-	glScalef(0.3f, 0.3f, 0.3f);
-	s.drawSnowMan();
-	glPopMatrix();
+	// Snowman s;
+	// glPushMatrix();
+	// glTranslatef(-9.7f, 2.0f, -3.0);
+	// glScalef(0.3f, 0.3f, 0.3f);
+	// s.drawSnowMan();
+	// glPopMatrix();
 	
-	if ( x < -8.0 && x > -9.0 && z < -1.0 && z > -2.0) {
-		interactWithSnowman();
-	}
+	// if ( x < -8.0 && x > -9.0 && z < -1.0 && z > -2.0) {
+	// 	interactWithSnowman();
+	// }
 
-	
+	// Fan
 	glPushMatrix();
 	glTranslatef(0.0f, 6.0f, 0.0);
 	glScalef(0.3f, 0.3f, 0.3f);
 	f.drawFan();
 	glPopMatrix();
 
-	Shelf sh;
-	glPushMatrix();
-	glTranslatef(8.99f, 3.5f, 4.0);
-	glScalef(0.25f, 0.25f, 0.25f);
-	glRotatef(-90, 0.0f, 1.0f, 0.0f);
-	sh.drawShelf();
-	glPopMatrix();
+	// Shelf sh;
+	// glPushMatrix();
+	// glTranslatef(8.99f, 3.5f, 4.0);
+	// glScalef(0.25f, 0.25f, 0.25f);
+	// glRotatef(-90, 0.0f, 1.0f, 0.0f);
+	// sh.drawShelf();
+	// glPopMatrix();
 	
 	if(abs((int) mouseX) > 0.3){
 		angle -= (0.004f * mouseX);
