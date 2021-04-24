@@ -67,94 +67,97 @@ void renderScene(void) {
 	glColor3f(0.7f, 0.7f, 0.7f);
 	glBegin(GL_QUADS);
 	glVertex3f(-10.0f, 0.0f, -10.0f);
-	glVertex3f(-10.0f, 0.0f, 10.0f);
-	glVertex3f(10.0f, 0.0f, 10.0f);
-	glVertex3f(10.0f, 0.0f, -10.0f);
+	glVertex3f(-10.0f, 0.0f, 5.0f);
+	glVertex3f(1.0f, 0.0f, 5.0f);
+	glVertex3f(1.0f, 0.0f, -10.0f);
 	glEnd();
 
-    //wall
+    //wall tras
     glColor3f(0.9294f, 0.9216f, 0.8353f);
 	glBegin(GL_QUADS);
 	glVertex3f(-10.0f, 0.0f, -10.0f);
 	glVertex3f(-10.0f, 7.0f, -10.0f);
-	glVertex3f(10.0f, 7.0f, -10.0f);
-	glVertex3f(10.0f, 0.0f, -10.0f);
+	glVertex3f(1.0f, 7.0f, -10.0f);
+	glVertex3f(1.0f, 0.0f, -10.0f);
 	glEnd();
 
-	//wall
+	//wall esquerda
     glColor3f(1.0f, 0.851f, 0.702f);
 	glBegin(GL_QUADS);
 	glVertex3f(-10.0f, 0.0f, -10.0f);
 	glVertex3f(-10.0f, 7.0f, -10.0f);
-	glVertex3f(-10.0f, 7.0f, 10.0f);
-	glVertex3f(-10.0f, 0.0f, 10.0f);
+	glVertex3f(-10.0f, 7.0f, 5.0f);
+	glVertex3f(-10.0f, 0.0f, 5.0f);
 	glEnd();
 
-	//wall with door
+	//wall with door esquerda
     glColor3f(1.0f, 0.851f, 0.702f);
 	glBegin(GL_QUADS);
-	glVertex3f(-10.0f, 0.0f, 10.0f);
-	glVertex3f(-10.0f, 7.0f, 10.0f);
-	glVertex3f(-6.0f, 7.0f, 10.0f);
-	glVertex3f(-6.0f, 0.0f, 10.0f);
+	glVertex3f(-10.0f, 0.0f, 5.0f);
+	glVertex3f(-10.0f, 7.0f, 5.0f);
+	glVertex3f(-6.0f, 7.0f, 5.0f);
+	glVertex3f(-6.0f, 0.0f, 5.0f);
 	glEnd();
 
+	//wall with door direita
 	glColor3f(1.0f, 0.851f, 0.702f);
 	glBegin(GL_QUADS);
-	glVertex3f(-3.0f, 0.0f, 10.0f);
-	glVertex3f(-3.0f, 7.0f, 10.0f);
-	glVertex3f(10.0f, 7.0f, 10.0f);
-	glVertex3f(10.0f, 0.0f, 10.0f);
+	glVertex3f(-3.0f, 0.0f, 5.0f);
+	glVertex3f(-3.0f, 7.0f, 5.0f);
+	glVertex3f(1.0f, 7.0f, 5.0f);
+	glVertex3f(1.0f, 0.0f, 5.0f);
 	glEnd();
 
+	//wall with door meio
 	glColor3f(1.0f, 0.851f, 0.702f);
 	glBegin(GL_QUADS);
-	glVertex3f(-6.0f, 7.0f, 10.0f);
-	glVertex3f(-6.0f, 5.0f, 10.0f);
-	glVertex3f(-3.0f, 5.0f, 10.0f);
-	glVertex3f(-3.0f, 7.0f, 10.0f);
+	glVertex3f(-6.0f, 7.0f, 5.0f);
+	glVertex3f(-6.0f, 5.0f, 5.0f);
+	glVertex3f(-3.0f, 5.0f, 5.0f);
+	glVertex3f(-3.0f, 7.0f, 5.0f);
 	glEnd();
 
+	// Door lines
 	glColor3f(0.4f, 0.2f, 0.0f);
 	glLineWidth(30.0f);
 	glBegin(GL_LINES);
-    glVertex3f(-6.0f, 5.0f, 10.01f);
-	glVertex3f(-3.0f, 5.0f, 10.01f);
+    glVertex3f(-6.0f, 5.0f, 5.01f);
+	glVertex3f(-3.0f, 5.0f, 5.01f);
 	glEnd();
 
 	glBegin(GL_LINES);
-    glVertex3f(-6.0f, 5.0f, 10.01f);
-	glVertex3f(-6.0f, 0.0f, 10.01f);
+    glVertex3f(-6.0f, 5.0f, 5.01f);
+	glVertex3f(-6.0f, 0.0f, 5.01f);
 	glEnd();
 
 	glBegin(GL_LINES);
-    glVertex3f(-3.0f, 0.0f, 10.01f);
-	glVertex3f(-3.0f, 5.0f, 10.01f);
+    glVertex3f(-3.0f, 0.0f, 5.01f);
+	glVertex3f(-3.0f, 5.0f, 5.01f);
 	glEnd();
 
 
-	//wall
+	//wall direita
     glColor3f(1.0f, 0.851f, 0.702f);
 	glBegin(GL_QUADS);
-	glVertex3f(10.0f, 0.0f, -10.0f);
-	glVertex3f(10.0f, 7.0f, -10.0f);
-	glVertex3f(10.0f, 7.0f, 10.0f);
-	glVertex3f(10.0f, 0.0f, 10.0f);
+	glVertex3f(1.0f, 0.0f, -10.0f);
+	glVertex3f(1.0f, 7.0f, -10.0f);
+	glVertex3f(1.0f, 7.0f, 5.0f);
+	glVertex3f(1.0f, 0.0f, 5.0f);
 	glEnd();
 
 	//ceiling
 	glColor3f(0.95f, 0.95f, 0.95f);
 	glBegin(GL_QUADS);
 	glVertex3f(-10.0f, 7.0f, -10.0f);
-	glVertex3f(10.0f, 7.0f, -10.0f);
-	glVertex3f(10.0f, 7.0f, 10.0f);
-	glVertex3f(-10.0f, 7.0f, 10.0f);
+	glVertex3f(1.0f, 7.0f, -10.0f);
+	glVertex3f(1.0f, 7.0f, 5.0f);
+	glVertex3f(-10.0f, 7.0f, 5.0f);
 	glEnd();
 
 	// Draw prof's chair
 	Chair profChair;
 	glPushMatrix();
-	glTranslatef( -5.5f, 1.0f, -8.0f);
+	glTranslatef( -6.0f, 1.0f, -8.0f);
 	glScalef(0.32f, 0.32f, 0.32f);
 	glRotatef(180.0, 0.0, 1.0, 0.0);
 	profChair.drawChair();
@@ -163,101 +166,52 @@ void renderScene(void) {
 	// Draw prof's table
 	Table profTable;
 	glPushMatrix();
-	glTranslatef( -6.0f, 1.4f, -9.0f);
+	glTranslatef( -6.5f, 1.4f, -9.0f);
 	glScalef(0.5f, 0.5f, 0.5f);
 	glRotatef(180.0, 0.0, 1.0, 0.0);
 	profTable.drawTable();
 	glPopMatrix();
 
-	// Draw student chairs
-	// Chair studentChair;
-	// glPushMatrix();
-	// glTranslatef(-6.0f, 1.4f, 9.0f);
-	// glScalef(0.5f, 0.5f, 0.5f);
-	// glRotatef(180.0, 0.0, 1.0, 0.0);
-	// studentChair.drawChair();
-	// glPopMatrix();
-
-	// Draw student tables
-	// Table studentTable;
-	// glPushMatrix();
-	// glTranslatef(2.0 + 0.3f, 1.2f, 2.0 + 1.2f);
-	// glScalef(0.4f, 0.4f, 0.4f);
-	// glRotatef(180.0, 0.0, 1.0, 0.0);
-	// studentTable.drawTable();
-	// glPopMatrix();
-
 	// Draw cupboard
 	Cupboard cupboard;
 	glPushMatrix();
-	glTranslatef( -1.0f, 0.0f, -9.0f);
+	glTranslatef( -1.5f, 0.0f, -9.0f);
 	glRotatef(360.0, 0.0, 1.0, 0.0);
 	cupboard.drawCupboard();
 	glPopMatrix();
 
-	// Draw blackboard
-	// glColor3f(0.4f, 0.2f, 0.0f);
-	// glBegin(GL_QUADS);
-	// glVertex3f(-6.0f, 2.0f, -9.99f);
-	// glVertex3f(-6.0f, 5.5f, -9.99f);
-	// glVertex3f(6.0f, 5.5f, -9.99f);
-	// glVertex3f(6.0f, 2.0f, -9.99f);
-	// glEnd();
-
-	// glColor3f(0.149f, 0.149f, 0.149f);
-	// glBegin(GL_QUADS);
-	// glVertex3f(-5.8f, 2.2f, -9.98f);
-	// glVertex3f(-5.8f, 5.3f, -9.98f);
-	// glVertex3f(5.8f, 5.3f, -9.98f);
-	// glVertex3f(5.8f, 2.2f, -9.98f);
-	// glEnd();
-
 	//Floor pattern
 	glColor3f(0.149f, 0.149f, 0.149f);
 	glLineWidth(3.0f);
-	for(int i = 0; i < 20; i += 2)
+	for(int i = 0; i < 12; i += 1)
 	{
 		glBegin(GL_LINES);
 		glVertex3f(-10.0f + i, 0.001f, -10.01f);
-		glVertex3f(-10.0f + i, 0.001f, 10.01f);
+		glVertex3f(-10.0f + i, 0.001f, 5.01f);
 		glEnd();
 	}
-	for(int i = 0; i < 20; i += 2)
+	for(int i = 0; i < 15; i += 1)
 	{
 		glBegin(GL_LINES);
 		glVertex3f(-10.0f, 0.001f, -10.01f + i);
-		glVertex3f(10.0f, 0.001f, -10.01f + i);
+		glVertex3f(1.0f, 0.001f, -10.01f + i);
 		glEnd();
 	}
 
 	//windows
 	Window w;
-	w.drawWindow1();
 	w.drawWindow2();
 	w.drawWindowSill();
 	glPushMatrix();
 	glTranslatef( 0.0f, 0.0f, 8.0f);
-	w.drawWindowSill();
 	glPopMatrix();
-
-	//Draw Snowmen
-	// Snowman s;
-	// glPushMatrix();
-	// glTranslatef(-9.7f, 2.0f, -3.0);
-	// glScalef(0.3f, 0.3f, 0.3f);
-	// s.drawSnowMan();
-	// glPopMatrix();
-	
-	// if ( x < -8.0 && x > -9.0 && z < -1.0 && z > -2.0) {
-	// 	interactWithSnowman();
-	// }
 
 	// Fan
-	glPushMatrix();
-	glTranslatef(0.0f, 6.0f, 0.0);
-	glScalef(0.3f, 0.3f, 0.3f);
-	f.drawFan();
-	glPopMatrix();
+	// glPushMatrix();
+	// glTranslatef(0.0f, 6.0f, 0.0);
+	// glScalef(0.3f, 0.3f, 0.3f);
+	// f.drawFan();
+	// glPopMatrix();
 
 	// Shelf sh;
 	// glPushMatrix();
