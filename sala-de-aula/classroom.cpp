@@ -10,10 +10,8 @@
 #include "./src/table.cpp"
 #include "./src/cupboard.cpp"
 #include "./src/window.cpp"
-#include "./src/snowman.cpp"
 #include "./src/fan.cpp"
 #include "./src/shelf.cpp"
-
 
 
 #define WINDOW_WIDTH 1000
@@ -36,22 +34,6 @@ float mouseX = 0.0f, mouseY = 0.0f;
 
 //Fan
 Fan f;
-
-void interactWithSnowman(){
-	
-	char str1[] = "Hello! You seem to be the only student in class today.";
-	int l1 = strlen(str1); // see how many characters are in text string.
-	glPushMatrix();
-
-	glColor3f(0.0f, 0.0f, 0.0f);
-
-	glRasterPos3f(-9.6f, 2.7f, -2.8); // location to start printing text
-	for( int i=0; i < l1; i++) // loop until i is greater then l
-	{
-		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, str1[i]); // Print a character on the screen
-	}
-	glPopMatrix();
-}
 
 void renderScene(void) {
 
