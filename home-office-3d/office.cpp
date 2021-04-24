@@ -5,14 +5,14 @@
 #include <GL/glut.h>
 #include <GL/freeglut_ext.h>
 
-#include "./src/vendor/texture.h"
+#include "src/vendor/texture.h"
 
-#include "./src/chair.cpp"
-#include "./src/computer.cpp"
-#include "./src/table.cpp"
-#include "./src/cupboard.cpp"
-#include "./src/window.cpp"
-#include "./src/bwall.cpp"
+#include "src/chair.cpp"
+#include "src/computer.cpp"
+#include "src/table.cpp"
+#include "src/cupboard.cpp"
+#include "src/window.cpp"
+#include "src/bwall.cpp"
 
 
 #define WINDOW_WIDTH 1000
@@ -63,7 +63,7 @@ void renderScene(void) {
 	glPopMatrix();
 
 	//wall esquerda
-    glColor3f(1.0f, 0.851f, 0.702f);
+	glColor3f(0.95f, 0.95f, 0.95f);
 	glBegin(GL_QUADS);
 	glVertex3f(-10.0f, 0.0f, -10.0f);
 	glVertex3f(-10.0f, 7.0f, -10.0f);
@@ -72,7 +72,7 @@ void renderScene(void) {
 	glEnd();
 
 	//wall with door esquerda
-    glColor3f(1.0f, 0.851f, 0.702f);
+	glColor3f(0.95f, 0.95f, 0.95f);
 	glBegin(GL_QUADS);
 	glVertex3f(-10.0f, 0.0f, 5.0f);
 	glVertex3f(-10.0f, 7.0f, 5.0f);
@@ -82,7 +82,7 @@ void renderScene(void) {
 
 	//wall with door direita
 
-	glColor3f(1.0f, 0.851f, 0.702f);
+	glColor3f(0.95f, 0.95f, 0.95f);
 	glBegin(GL_QUADS);
 	glVertex3f(-3.0f, 0.0f, 5.0f);
 	glVertex3f(-3.0f, 7.0f, 5.0f);
@@ -91,7 +91,7 @@ void renderScene(void) {
 	glEnd();
 
 	//wall with door meio
-	glColor3f(1.0f, 0.851f, 0.702f);
+	glColor3f(0.95f, 0.95f, 0.95f);
 	glBegin(GL_QUADS);
 	glVertex3f(-6.0f, 7.0f, 5.0f);
 	glVertex3f(-6.0f, 5.0f, 5.0f);
@@ -118,7 +118,7 @@ void renderScene(void) {
 	glEnd();
 
 	//wall direita
-    glColor3f(1.0f, 0.851f, 0.702f);
+	glColor3f(0.95f, 0.95f, 0.95f);
 	glBegin(GL_QUADS);
 	glVertex3f(1.0f, 0.0f, -10.0f);
 	glVertex3f(1.0f, 7.0f, -10.0f);

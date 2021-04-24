@@ -1,7 +1,6 @@
 #include "computer.h"
 
-#define TEXTURA_TECLADO "/home/manoel/Documentos/Faculdade/Computação Gráfica/Trabalhos/home-office-3d/src/keyboard.png"
-#define TEXTURA_VIDRO "/home/manoel/Documentos/Faculdade/Computação Gráfica/Trabalhos/home-office-3d/src/glass.png"
+#define TEXTURA_TECLADO "src/vendor/textures/keyboard.png"
 #define COORD_TEXTURA_PLANO 1.0
 #define COORD_TEXTURA_PONTO 0.0
 

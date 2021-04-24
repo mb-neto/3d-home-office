@@ -1,6 +1,6 @@
 #include "table.h"
 
-#define TEXTURA_MADEIRA "/home/manoel/Documentos/Faculdade/Computação Gráfica/Trabalhos/home-office-3d/src/wood.png"
+#define TEXTURA_MADEIRA "src/vendor/textures/wood.png"
 #define COORD_TEXTURA_PLANO 1.0
 #define COORD_TEXTURA_PONTO 0.0
 
@@ -72,7 +72,6 @@ void Table :: drawTable() {
 	//table front leg
 	//front
 	//
-	glColor3f(.8f, .6f, 0.0f);
 	glTexCoord2fv(ctp[0]);	glVertex3f(1.8f, -0.2f, 1.6f);
 	glTexCoord2fv(ctp[1]);	glVertex3f(1.4f, -0.2f, 1.6f);
 	glTexCoord2fv(ctp[2]);	glVertex3f(1.4f, -3.0f, 1.6f);

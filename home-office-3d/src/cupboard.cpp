@@ -1,6 +1,6 @@
 #include "cupboard.h"
 
-#define TEXTURA_METAL "/home/manoel/Documentos/Faculdade/Computação Gráfica/Trabalhos/home-office-3d/src/metal.png"
+#define TEXTURA_METAL "src/vendor/textures/metal.png"
 #define COORD_TEXTURA_PLANO 1.0
 #define COORD_TEXTURA_PONTO 0.0
 
