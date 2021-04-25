@@ -13,6 +13,7 @@
 #include "src/cupboard.cpp"
 #include "src/window.cpp"
 #include "src/bwall.cpp"
+#include "src/ceiling.cpp"
 
 
 #define WINDOW_WIDTH 1000
@@ -58,7 +59,6 @@ void renderScene(void) {
     //wall tras
 	BWall bwall;
 	glPushMatrix();
-	glColor3f(1.0, 1.0, 1.0);
 	bwall.drawBWall();
 	glPopMatrix();
 
@@ -127,12 +127,10 @@ void renderScene(void) {
 	glEnd();
 
 	//ceiling
-	glColor3f(0.95f, 0.95f, 0.95f);
-	glBegin(GL_QUADS);
-	glVertex3f(-10.0f, 7.0f, -10.0f);
-	glVertex3f(1.0f, 7.0f, -10.0f);
-	glVertex3f(1.0f, 7.0f, 5.0f);
-	glVertex3f(-10.0f, 7.0f, 5.0f);
+	Ceiling c;
+	glPushMatrix();
+	c.drawCeiling();
+	glPopMatrix();
 	glEnd();
 
 	// Draw prof's chair
@@ -147,10 +145,11 @@ void renderScene(void) {
 	// Draw Computer
 	Computer pc;
 	glPushMatrix();
-	glTranslatef( -6.0f, 1.7f, -8.2f);
+	glTranslatef(-6.0f, 1.7f, -8.2f);
 	glScalef(0.32f, 0.32f, 0.32f);
 	glRotatef(180.0, 0.0, 1.0, 0.0);
-	pc.drawComputer();
+	pc.drawKeyboard();
+	pc.drawScreen();
 	glPopMatrix();
 
 	// Draw prof's table
@@ -248,30 +247,49 @@ void processSpecialKeys(int key, int xx, int yy) {
 // @param yy : y coordinate of mouse position
 void processNormalKeys(unsigned char key, int xx, int yy) {
     float fraction = 0.1f;
-    if(key == 'w'){
+	switch (key) {
+    case 'w':
         x += lx * fraction;
 		z += lz * fraction;
-    } else if(key == 'a'){
+		glutPostRedisplay();
+		break;
+    case 'a':
         x += sin(angle - M_PI/2.0) * fraction;
 		z += -cos(angle - M_PI/2.0) * fraction;
-    } else if(key == 's'){
+		glutPostRedisplay();
+		break;
+    case 's':
         x -= lx * fraction;
 		z -= lz * fraction;
-    } else if(key == 'd'){
+		glutPostRedisplay();
+		break;
+    case 'd':
         x += sin(M_PI/2.0 + angle) * fraction;
 		z += -cos(M_PI/2.0 + angle) * fraction;
-    } else if (key == 'x') {
+		glutPostRedisplay();
+		break;
+    case 'x':
 		roll += 0.5f;
-	} else if (key == 'z') {
+		glutPostRedisplay();
+		break;
+	case 'z':
 		roll -= 0.5f;
-	} else if (key == 'o') {
+		glutPostRedisplay();
+		break;
+	case 'o':
 		glDisable(GL_LIGHT0);
-	} else if (key == 'l') {
+		glutPostRedisplay();
+		break;
+	case 'l':
 		glEnable(GL_LIGHT0);
-	}
-	
-	if (key == 27)
+		glutPostRedisplay();
+		break;
+	case 27:
 		exit(0);
+		break;
+	default:
+		break;
+	}
 }
 
  // Handles the events triggered when the mouse is moved in the window area. 
@@ -355,7 +373,7 @@ int main(int argc, char **argv) {
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
 	glutInitWindowPosition(0, 0);
 	glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-	glutCreateWindow("Classroom");
+	glutCreateWindow("Home Office");
 	init();
 	light();
 

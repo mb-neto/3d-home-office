@@ -170,7 +170,7 @@ void Chair :: drawChair() {
 	glVertex3f(-1.4f, -3.0f, -1.6f);
 
 	//;
-	//chair upper part 
+	//chair upper part
 	glColor3f(1.0, 1.0, 1.0);
 	
 	glVertex3f(-1.8f, 0.2f, -1.8f);

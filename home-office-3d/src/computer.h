@@ -6,9 +6,9 @@
 
 class Computer{
 
-    public:
-		void drawComputer() ;
-
+public:
+		void drawKeyboard();
+    void drawScreen();
 };
 
 #endif

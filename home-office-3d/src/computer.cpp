@@ -6,7 +6,7 @@
 
 #define DEF_D 5
 
-void Computer :: drawComputer() {
+void Computer :: drawKeyboard() {
 
 	GLfloat ctp[4][2]={
   		{COORD_TEXTURA_PONTO,COORD_TEXTURA_PONTO},
@@ -69,9 +69,17 @@ void Computer :: drawComputer() {
 	glVertex3f(-1.8f, -0.2f, -1.0f);
 	glVertex3f(1.8f, -0.2f, -1.0f);
 
+	glEnd();
+
+}
+
+void Computer :: drawScreen() {
+
+	glBegin(GL_QUADS);
+
 	// Tela 
     // frente e tras
-	glColor3f(0.5, 0.5, 0.5);
+	glColor3f(0.0, 0.0, 0.0);
 	
 	glVertex3f(-1.8f, 0.0f, 1.95f);
 	glVertex3f(1.8f, 0.0f, 1.95f);
@@ -106,7 +114,6 @@ void Computer :: drawComputer() {
 	glVertex3f(-1.8f, 0.0f, 2.0f);
 	glVertex3f(1.8f, 0.0f, 2.0f);
 	glVertex3f(1.8f, 0.0f, 1.95f);
-
+	
 	glEnd();
-
 }
